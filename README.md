@@ -1,240 +1,300 @@
-# GoTalk 💬🚀
+# GoTalk 💬
 
 [![Go](https://img.shields.io/badge/Go-1.20+-00ADD8?style=flat&logo=go)](https://golang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
-GoTalk is a simple TCP-based chat server written in Go. It lets multiple users chat in real-time from their terminals. Key features include sending messages to everyone, unique usernames, timestamps on messages, and keeping a log of the chat. It's great for quick chats or team discussions.
+---
 
-## Features ✨
+<p align="center">
+  💬 <strong>GoTalk</strong><br/>
+  <em>Real-time terminal chat powered by Go</em>
+</p>
 
-- **Real-time Messaging** 💬: Messages are sent instantly to all connected users.
-- **Unique Usernames** 👤: Each person must choose a name that no one else is using.
-- **Timestamps** ⏰: Every message shows the exact time it was sent.
-- **Chat Logs** 📝: All messages and events are saved to a file for later review.
-- **Multiple Connections** 🔄: The server can handle up to 10 users at the same time using Go's goroutines.
-- **Join/Leave Alerts** 🚪: Users are notified when someone enters or exits the chat.
-- **Message History** 📜: New users see recent messages when they join.
+<p align="center">
+  Concurrent TCP connections • Message broadcasting • Server-side logging
+</p>
 
-## Technologies Used 🛠️
+---
 
-The project uses:
+<p align="center">
+  <strong>Real-time terminal chat powered by Go.</strong><br/>
+  <em>Simple. Concurrent. Reliable.</em>
+</p>
 
-- **Go** 🐹: The main programming language for building the server, handling connections, and managing tasks at the same time.
-- **TCP/IP** 🌐: The network protocol that ensures reliable communication between the server and clients.
-- **Goroutines** ⚡: Go's way of running multiple tasks concurrently without slowing down.
-- **Channels** 📡: Tools in Go for safe communication between different parts of the program.
-- **File I/O** 💾: Basic file operations to save and read chat logs.
+<!-- 🔗 Quick Navigation -->
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-technologies-used">Tech Stack</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-how-to-use">Usage</a> •
+  <a href="#-application-architecture">Architecture</a>
+</p>
 
-## What We Aim For 🎯
+---
 
-GoTalk creates a basic chat experience over TCP connections. The server handles:
+## Overview
 
-1. **Users**: Connections with unique names to avoid mix-ups.
-2. **Messages**: Broadcasting them in real-time and saving them with timestamps.
-3. **Events**: Notifications for when users join or leave, processed in the background.
-4. **History**: Sending recent messages to new users so they can catch up.
+**GoTalk** is a TCP-based chat server written in **Go** that allows multiple users to communicate in real time through their terminals. It supports concurrent connections, unique usernames, timestamped messages, and persistent chat logs.
 
-We use simple data structures and Go's concurrency features to keep things running smoothly.
+Designed as a networking-focused project, GoTalk demonstrates core concepts such as TCP communication, goroutines, channels, and synchronized message broadcasting.
 
-## Getting Started 🚀
+---
+
+## ✨ Features
+
+GoTalk includes the following core features:
+
+- **Real-Time Messaging** 💬  
+  Messages are delivered instantly to all connected users.
+
+- **Unique Usernames** 👤  
+  Each user must select a name that is not already in use.
+
+- **Timestamps** ⏰  
+  Every message includes the exact time it was sent.
+
+- **Chat Logs** 📝  
+  Messages and system events are stored in a log file for later review.
+
+- **Concurrent Connections** 🔄  
+  Handles up to 10 users simultaneously using goroutines.
+
+- **Join / Leave Notifications** 🚪  
+  Users are notified when someone enters or exits the chat.
+
+- **Message History** 📜  
+  Recent messages are displayed to users when they join.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Go** 🐹 – Core language, networking, and concurrency  
+- **TCP/IP** 🌐 – Reliable communication protocol  
+- **Goroutines** ⚡ – Concurrent client handling  
+- **Channels** 📡 – Message broadcasting and synchronization  
+- **File I/O** 💾 – Persistent chat logging  
+
+<!-- 🧩 Technology Logo -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="48"/>
+</p>
+
+---
+
+## 🎯 Project Objective
+
+GoTalk provides a minimal yet functional chat experience over TCP connections, focusing on reliability and concurrency.
+
+### Core Responsibilities
+
+1. **Users** – Manage connections and enforce unique usernames  
+2. **Messages** – Broadcast messages with timestamps  
+3. **Events** – Handle join and leave notifications  
+4. **History** – Share recent messages with new users  
+
+The application uses simple data structures combined with Go’s concurrency model to ensure smooth operation.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Go version 1.20 or newer on your computer.
-- A terminal (command prompt) to run commands and connect as a client.
+- Go version **1.20 or newer**
+- A terminal to run the server and connect clients
 
-### Installation
+### Installation & Setup
 
-1. Download the code:
+1. Clone the repository:
    ```bash
    git clone https://github.com/sahmedhusain/gotalk.git
    ```
-2. Go into the project folder:
+
+2. Navigate to the project directory:
    ```bash
    cd gotalk
    ```
-3. Install any needed packages:
+
+3. Install dependencies:
    ```bash
    go mod tidy
    ```
+
 4. Start the server:
    ```bash
    go run main.go
    ```
 
-## How to Use 📖
+---
 
-Run the server first. Then, use a tool like NetCat to connect as a client. Type a unique name and start chatting. The server listens on localhost port 8989 by default.
+## 📖 How to Use
 
-### Example Connection
+Run the server first. Then connect using a TCP client such as **Netcat**.  
+The server listens on **localhost:8989** by default.
 
-- Connect as a client:
-  ```bash
-  nc localhost 8989
-  ```
-- You'll see:
-  ```
-  Welcome to TCP-Chat!
-           _nnnn_
-          dGGGGMMb
-         @p~qp~~qMb
-         M|@||@) M|
-         @,----.JM|
-        JS^\__/  qKL
-       dZP        qKRb
-      dZP          qKKb
-     fZP            SMMb
-     HZM            MMMM
-     FqM            MMMM
-   __| ".        |\dS"qML
-   |    `.       | `' \Zq
-  _)      \.___.,|     .'
-  \____   )MMMMMP|   .'
-       `-'       `--'
-  [ENTER YOUR NAME]:
-  ```
-  (Enter a name, e.g., Alice)
+### Example Client Connection
 
-## Terminal Examples 💻
+```bash
+nc localhost 8989
+```
+
+You will see the server welcome screen and be prompted to enter a username:
+
+```text
+Welcome to TCP-Chat!
+         _nnnn_
+        dGGGGMMb
+       @p~qp~~qMb
+       M|@||@) M|
+       @,----.JM|
+      JS^\__/  qKL
+     dZP        qKRb
+    dZP          qKKb
+   fZP            SMMb
+   HZM            MMMM
+   FqM            MMMM
+ __| ".        |\dS"qML
+ |    `.       | `' \Zq
+_)      \.___.,|     .'
+\____   )MMMMMP|   .'
+     `-'       `--'
+[ENTER YOUR NAME]:
+```
+
+Enter a unique username (for example: `Alice`) to join the chat.
+
+You will be prompted to enter a unique username before joining the chat.
+
+---
+
+## 💻 Terminal Examples
 
 ### Starting the Server
 
 ```bash
-$ go run main.go
+go run main.go
 Server is running on Port :8989
 ```
 
-### Chatting Between Users
+### Chat Session Example
 
-```bash
-$ nc localhost 8989
-Welcome to TCP-Chat!
-         _nnnn_
-        dGGGGMMb
-       @p~qp~~qMb
-       M|@||@) M|
-       @,----.JM|
-      JS^\__/  qKL
-     dZP        qKRb
-    dZP          qKKb
-   fZP            SMMb
-   HZM            MMMM
-   FqM            MMMM
- __| ".        |\dS"qML
- |    `.       | `' \Zq
-_)      \.___.,|     .'
-\____   )MMMMMP|   .'
-     `-'       `--'
-[ENTER YOUR NAME]: Alice
+```text
 [2024-10-12 15:12:45][system]: Alice joined the chat
-
-$ nc localhost 8989
-Welcome to TCP-Chat!
-         _nnnn_
-        dGGGGMMb
-       @p~qp~~qMb
-       M|@||@) M|
-       @,----.JM|
-      JS^\__/  qKL
-     dZP        qKRb
-    dZP          qKKb
-   fZP            SMMb
-   HZM            MMMM
-   FqM            MMMM
- __| ".        |\dS"qML
- |    `.       | `' \Zq
-_)      \.___.,|     .'
-\____   )MMMMMP|   .'
-     `-'       `--'
-[ENTER YOUR NAME]: Bob
-[2024-10-12 15:13:00][system]: Bob joined the chat
 [2024-10-12 15:13:02][Alice]: Hi Bob!
 [2024-10-12 15:13:05][Bob]: Hello Alice!
-[2024-10-12 15:13:10][Alice]: How is everyone doing today?
-[2024-10-12 15:13:15][Bob]: Great, thanks! Excited to chat.
 ```
 
-### When Someone Leaves
+### User Leaving
 
-```bash
+```text
 [2024-10-12 15:14:00][system]: Bob has left our chat...
 ```
 
-## Under the Hood 🔧
+---
 
-### How Data is Handled
+## 🛠️ Application Architecture
 
-The server uses Go's network tools to manage connections. Each user gets their own goroutine to read and write messages. A central channel broadcasts messages to everyone.
+```text
+┌───────────┐
+│  Client   │
+│ (Terminal)│
+└─────┬─────┘
+      │ TCP
+┌─────▼─────┐
+│  Server   │
+│   (Go)    │
+├───────────┤
+│ Goroutine │──┐
+│ Goroutine │  │ Broadcast
+│ Goroutine │──┘ Channel
+├───────────┤
+│  Logger   │ → chat_logs.txt
+└───────────┘
+```
 
-### Server Side
+### Design Overview
+- Each client runs in its own goroutine
+- Messages flow through a central broadcast channel
+- Chat activity is persisted using file-based logging
 
-- **Connections**: Each client spawns a goroutine for handling input and output.
-- **Broadcasting**: A main goroutine sends messages to all users.
-- **Logging**: Events are written to a file with times and user info.
-- **Concurrency**: Locks prevent issues when multiple users act at once.
-- **Errors**: The server handles disconnections and bad inputs gracefully.
+### Data Handling
+
+- Each client connection runs in its own goroutine
+- Messages are sent through a central broadcast channel
+
+### Server-Side Design
+
+- **Connections** – Dedicated goroutines per client  
+- **Broadcasting** – Central message dispatcher  
+- **Logging** – File-based event and message logs  
+- **Concurrency Safety** – Locks prevent race conditions  
+- **Error Handling** – Graceful disconnect handling  
 
 ### Networking
 
-- **TCP Sockets**: Ensure messages arrive reliably.
-- **Broadcasting**: Uses channels for efficient message sharing.
-- **Limits**: Currently up to 10 users to keep it simple.
+- TCP sockets ensure reliable delivery
+- Channel-based broadcasting improves performance
+- Connection limits prevent overload
 
-The design makes it easy to add features later.
+---
 
-## Chat Details 📋
+## 📋 Chat System Details
 
-The system includes:
+- Unique username validation  
+- Instant message delivery  
+- Persistent log storage (`chat_logs.txt`)  
+- Message history for new users  
+- Automated system messages  
 
-- **Unique Names**: The server checks for duplicates and asks for a different name if needed.
-- **Instant Updates**: Messages show up right away for all users.
-- **Saved Logs**: Everything goes to `chat_logs.txt` in an easy-to-read format.
-- **History for New Users**: They get the last few messages automatically.
-- **System Messages**: Automatic notes for joins, leaves, and issues.
+---
 
-## Contributing 🤝
+## 🤝 Contributing
 
-We welcome contributions. Fork the repo, make your changes, and submit a pull request. Follow Go's style guidelines and test your code.
+Contributions are welcome. Fork the repository, implement improvements, and submit a pull request.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/NewFeature`).
-3. Make your changes and commit them (`git commit -m 'Add NewFeature'`).
-4. Push to your branch (`git push origin feature/NewFeature`).
-5. Open a pull request.
+---
 
-## License 📄
+## 📄 License
 
-This project uses the MIT License. See LICENSE.md for details.
+This project is licensed under the **MIT License**. See [LICENSE.md](LICENSE.md) for details.
 
-## Acknowledgments 🙏
+---
 
-This was built while learning Go, with a focus on networking and running things in parallel. Thanks to the Go community for their help.
+## 🙏 Acknowledgments
 
-## Authors 👥
+Built as part of a Go learning journey with a focus on networking, concurrency, and server-side development.
 
-- **Sayed Ahmed Husain** - [sayedahmed97.sad@gmail.com](mailto:sayedahmed97.sad@gmail.com)
+---
 
-## What I Learned 📚
+## 👥 Authors
 
-Working on GoTalk taught me:
+- **Sayed Ahmed Husain** – [sayedahmed97.sad@gmail.com](mailto:sayedahmed97.sad@gmail.com)
 
-- How to build a TCP server in Go.
-- Using goroutines and channels for concurrent tasks.
-- Basics of network programming with sockets.
-- Saving data to files for logs.
-- Handling errors in a multi-user system.
-- Organizing Go code in a clean way.
+---
 
-## Limitations ⚠️
+## 📚 What I Learned
 
-- **User Limit**: Only 10 users at once. You can change this in the code.
-- **No Security**: Messages are plain text. Add encryption for real use.
-- **Terminal Only**: Needs command-line tools; no graphical interface.
+- Building TCP servers in Go  
+- Using goroutines and channels effectively  
+- Concurrent client handling  
+- File-based logging  
+- Error handling in multi-user systems  
 
-## Future Improvements 🚀
+---
 
-- Add encryption for secure chats.
-- Create a better interface for the terminal.
-- Build a dedicated client app.
-- Include user login and private messages.
-- Make it handle more users with better scaling.
+## ⚠️ Limitations
+
+- Maximum of 10 concurrent users  
+- No encryption (plain-text communication)  
+- Terminal-based interface only  
+
+---
+
+## 🔮 Future Improvements
+
+- Add message encryption  
+- Improve terminal UI  
+- Develop a dedicated client  
+- Support private messaging  
+- Enhance scalability  
