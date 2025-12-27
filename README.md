@@ -270,6 +270,7 @@ Built as part of a Go learning journey with a focus on networking, concurrency, 
 ## 👥 Authors
 
 - **Sayed Ahmed Husain** – [sayedahmed97.sad@gmail.com](mailto:sayedahmed97.sad@gmail.com)
+- **Qassim Aljaffer**
 
 ---
 
